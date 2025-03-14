@@ -4,8 +4,8 @@ WORKDIR /build
 RUN apk add --no-cache git gcc musl-dev
 
 RUN git clone --branch clickhouse-support --depth 1 --single-branch https://github.com/dennis-tra/nebula.git . \
-    && git fetch --depth 1 origin 920421de5bfece7de21962f999a196399e148abe \
-    && git checkout 920421de5bfece7de21962f999a196399e148abe
+    && git fetch --depth 1 origin a592a633f3581ba033754b9056a01941cbd49c7c \
+    && git checkout a592a633f3581ba033754b9056a01941cbd49c7c
 
 RUN go mod download
 
