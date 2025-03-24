@@ -3,9 +3,10 @@ FROM golang:1.23-alpine AS builder
 WORKDIR /build
 RUN apk add --no-cache git gcc musl-dev
 
-RUN git clone --branch clickhouse-support --depth 1 --single-branch https://github.com/dennis-tra/nebula.git . \
-    && git fetch --depth 1 origin 400ef527b9838ea8a0c6ee63725265b0630bc291 \
-    && git checkout 400ef527b9838ea8a0c6ee63725265b0630bc291
+# release version 2.4.0
+RUN git clone --depth 1 --single-branch --branch main https://github.com/dennis-tra/nebula.git . \
+    && git fetch --depth 1 origin 5e53b575b55678eaab71fa6b666ff73db94e5c21 \
+    && git checkout 5e53b575b55678eaab71fa6b666ff73db94e5c21
 
 RUN go mod download
 
