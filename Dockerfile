@@ -3,10 +3,10 @@ FROM golang:1.23-alpine AS builder
 WORKDIR /build
 RUN apk add --no-cache git gcc musl-dev
 
-# release version 2.4.0
+# upstream main HEAD as of 2026-04-23
 RUN git clone --depth 1 --single-branch --branch main https://github.com/dennis-tra/nebula.git . \
-    && git fetch --depth 1 origin 5e53b575b55678eaab71fa6b666ff73db94e5c21 \
-    && git checkout 5e53b575b55678eaab71fa6b666ff73db94e5c21
+    && git fetch --depth 1 origin 7cf39ac8b5a172b226086ee05c14913ab25a22d3 \
+    && git checkout 7cf39ac8b5a172b226086ee05c14913ab25a22d3
 
 RUN go mod download
 
